@@ -1,16 +1,16 @@
 ### Revolutionising Histopathology with AI: Advanced Deep Learning for Breast Cancer Diagnosis
 
-This project leverages cutting-edge deep learning models like ResNet, DenseNet, and EfficientNet to classify histopathology images into benign or malignant categories. By addressing class imbalance, model interpretability, and feature space analysis, it aims to deliver reliable AI solutions for breast cancer diagnosis.
+This project leverages cutting-edge deep learning (DL) models like ResNet, DenseNet, and EfficientNet to classify histopathology images into benign or malignant categories. By addressing class imbalance, model interpretability, and feature space analysis, it aims to deliver reliable AI solutions for breast cancer diagnosis.
 
 #### Features
-- **Preprocessing Pipelines**: Standardizes histopathology images for model training.
+- **Pre-processing Pipelines**: Standardises histopathology images for model training.
 - **Advanced Architectures**: Includes ResNet, DenseNet, and EfficientNet implementations.
-- **Model Interpretability**: Visualizations using Grad-CAM.
+- **Model Interpretability**: Visualisations using Grad-CAM.
 - **Class Balancing**: Handles imbalanced datasets with techniques like weighted loss functions.
 - **Performance Metrics**: Evaluates using precision, recall, F1-score, and AUC-ROC.
 
 #### Installation
-Clone the repository and install dependencies:
+ - Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/yourusername/Histopathology-AI-BreastCancer.git
 cd Histopathology-AI-BreastCancer
