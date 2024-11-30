@@ -61,7 +61,7 @@ By combining CNNs with statistical methods and explainability tools, this projec
 - Re-purposed the best-performing models to extract embeddings from intermediate layers.
 - Captured complex image details to support statistical and clustering analyses.
 
-### **4. Clustering and Visualization**
+### **4. Clustering and Visualisation**
 - Performed hierarchical clustering on extracted features.
 - Visualised clusters using dendrograms and PCA scatter plots.
 
