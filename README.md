@@ -1,40 +1,37 @@
 ### **Revolutionising Histopathology with AI: Advanced Deep Learning for Breast Cancer**
-### **Overview**
-This project explores cutting-edge applications of **deep learning** and **statistical analysis** in breast cancer histopathology, leveraging pre-trained CNN architectures such as **ResNet50**, **EfficientNetB0**, and **DenseNet201** for feature extraction. By integrating these features with advanced clustering techniques and interpretability tools, we aim to uncover meaningful intra-class patterns, improve diagnostic precision, and bridge the gap between **AI-driven insights** and clinical applications.
+# **Breast Cancer Diagnostics with CNNs: Feature Extraction and Statistical Analysis**
 
-### Key Features:
+## **Overview**
+
+This project explores the application of state-of-the-art deep learning models—**ResNet50**, **EfficientNetB0**, and **DenseNet201**—for breast cancer diagnostics using the **BreakHis dataset**. The work involves:
+- Training individual CNN models.
+- Combining their outputs using an **ensemble approach** to achieve optimal performance metrics.
+- Repurposing the best models as **feature extractors** for clustering and statistical analysis.
+- Applying **Grad-CAM** and **LIME** for explainability, linking statistical insights with interpretable visualizations.
+
+By combining feature extraction with clustering and statistical techniques, this work provides a comprehensive pipeline for interpreting and analyzing complex datasets, bridging the gap between raw data and actionable insights.
+
+---
+
+## **Key Features**
+
+- **Deep Learning Models**:
+  - Trained **ResNet50**, **EfficientNetB0**, and **DenseNet201** for binary classification (benign vs. malignant).
+  - Applied ensembling (logistic regression meta-model) to achieve optimal accuracy, sensitivity, and specificity.
+  
 - **Feature Extraction**:
-   - Utilised state-of-the-art pre-trained CNNs to extract high-dimensional representations from histopathological images.
-   - Focused on extracting features relevant to tumour heterogeneity and cellular morphology.
+  - Extracted embeddings from intermediate layers of the best models, encoding textures, shapes, and structural patterns of breast tissue.
 
-- **Clustering and Statistical Analysis**:
-   - Applied techniques like **PCA** for dimensionality reduction and **hierarchical clustering** to group features based on their biological relevance.
-   - Evaluated clustering performance using validation metrics such as **Silhouette Score** and **Calinski-Harabasz Index**.
-
-- **Visual Interpretability**:
-   - Incorporated **Grad-CAM** and **LIME** to enhance the interpretability of CNN decisions.
-   - Used visualisation techniques like t-SNE and correlation heatmaps to reveal underlying patterns.
-
-#### Dataset:
-- The project uses the **BreakHis** dataset, a benchmark in medical imaging, providing diverse histopathological images of breast tissue across multiple magnifications.
-
-#### Objectives:
-1. **Unveil Hidden Patterns**: Leverage deep learning to identify intra-class variations in histopathological data.
-2. **Enhance Model Interpretability**: Use statistical insights and visualisation tools to demystify black-box AI models.
-3. **Support Precision Medicine**: Enable more nuanced, personalised diagnostic pathways for breast cancer.
-
-#### **Key Features**
-
-- **Feature Extraction**:
-  - Extracted embeddings from ResNet50, EfficientNetB0, and DenseNet201 using intermediate layers.
-  - Features encoded textures, shapes, and structural patterns of breast tissue images.
 - **Clustering**:
-  - Applied hierarchical clustering to group data, revealing distinct patterns in benign vs. malignant classes.
-  - Visualised clusters using dendrograms for interpretability.
+  - Applied hierarchical clustering on extracted features to identify distinct patterns in benign vs. malignant samples.
+  - Visualized relationships between samples using dendrograms.
+
 - **Statistical Analysis**:
-  - Conducted t-tests and ANOVA to assess feature importance and distinguish between classes.
-- **Model Comparisons**:
-  - Benchmarked CNN architectures on clustering metrics, statistical relevance, and classification accuracy.
+  - Conducted t-tests and ANOVA to rank features based on their ability to distinguish between classes.
+  - Identified statistically significant clusters and correlated features with class labels.
+
+- **Explainability**:
+  - Integrated **Grad-CAM** and **LIME** to enhance model interpretability, linking feature insights with visual regions of interest.
 
 ---
 
@@ -45,34 +42,37 @@ Breast cancer diagnosis relies heavily on accurate and interpretable imaging too
 - Limited interpretability of predictions in clinical settings.
 - The need for robust pipelines that bridge feature extraction with actionable insights.
 
-By combining CNNs with statistical methods, this project aims to make breast cancer diagnostics not only accurate but also explainable and clinically useful.
+By combining CNNs with statistical methods and explainability tools, this project aims to make breast cancer diagnostics not only accurate but also explainable and clinically useful.
 
 ---
 
 ## **What I’ve Done**
 
-### **1. Data Pre-processing**
-- Preprocessed the **BreakHis** dataset, resizing images to `224 x 224` pixels and normalizing intensities.
-- Split the dataset into training and validation sets, maintaining class balance using stratified sampling.
+### **1. Model Training**
+- Trained **ResNet50**, **EfficientNetB0**, and **DenseNet201** on the **BreakHis dataset** for binary classification (benign vs. malignant).
+- Optimized model performance using data augmentation and weighted loss functions.
 
-### **2. Feature Extraction**
-- Leveraged pre-trained **ResNet50**, **EfficientNetB0**, and **DenseNet201** models to extract embeddings.
-- Focused on intermediate layers to capture rich image representations.
+### **2. Model Ensembling**
+- Combined the predictions of trained models using a **logistic regression meta-model** to achieve the best performance metrics:
+  - **Accuracy**: 99.56%
+  - **Sensitivity**: 99.54%
+  - **Specificity**: 99.60%
 
-### **3. Clustering and Visualization**
+### **3. Feature Extraction**
+- Repurposed the best-performing models to extract embeddings from intermediate layers.
+- Captured complex image details to support statistical and clustering analyses.
+
+### **4. Clustering and Visualization**
 - Performed hierarchical clustering on extracted features.
-- Visualized relationships between samples using dendrograms and PCA scatter plots.
+- Visualized clusters using dendrograms and PCA scatter plots.
 
-### **4. Statistical Analysis**
-- Conducted statistical tests (t-tests, ANOVA) to rank features based on their ability to distinguish classes.
+### **5. Statistical Analysis**
+- Conducted statistical tests (t-tests, ANOVA) to rank features by their discriminative power.
 - Identified clusters and correlated features with class labels (benign vs. malignant).
 
-### **5. Model Benchmarking**
-- Compared models on metrics like accuracy, AUC, and silhouette scores.
-- DenseNet201 emerged as the top performer across all benchmarks.
-
 ### **6. Explainability**
-- Integrated **Grad-CAM** and **LIME** to enhance model interpretability, linking statistical findings to visual explanations.
+- Applied **Grad-CAM** to visualize regions of images influencing predictions.
+- Used **LIME** to explain the contribution of individual features to model decisions.
 
 ---
 
@@ -84,21 +84,30 @@ By combining CNNs with statistical methods, this project aims to make breast can
 | ResNet50          | 94.2%       | 0.93     | 0.68                 |
 | EfficientNetB0    | 93.8%       | 0.92     | 0.66                 |
 | DenseNet201       | **98.3%**   | **0.96** | **0.78**             |
+| **Ensemble**      | **99.56%**  | **0.99** | -                    |
 
 ### **Clustering and Statistical Insights**
-- **Hierarchical Clustering**: DenseNet201 produced the most distinct and cohesive clusters, highlighting its ability to separate benign and malignant samples effectively.
+- **Hierarchical Clustering**: DenseNet201 features produced the most distinct and cohesive clusters, highlighting its ability to separate benign and malignant samples effectively.
 - **Statistical Analysis**: DenseNet201 features showed the highest significance in t-tests, with p-values consistently below 0.01 for top-ranked features.
 
 ### **Explainability**
-- Grad-CAM visualizations validated that CNNs focused on clinically relevant regions in histopathological images.
-
-#### Future Directions:
-- Expanding to other medical imaging datasets.
-- Enhancing clinical validation with patient outcomes.
-- Combining handcrafted and deep learning features for richer analyses.
+- **Grad-CAM** visualizations validated that CNNs focused on clinically relevant regions in histopathological images.
+- **LIME** provided granular explanations for feature contributions, enhancing trust and interpretability.
 
 ---
 
+## **Key Visualizations**
+
+### **1. PCA Scatter Plot**
+Demonstrates class separability in the feature space.
+
+### **2. Hierarchical Clustering**
+Dendrograms reveal distinct clusters formed by benign and malignant samples.
+
+### **3. Statistical Insights**
+Bar charts and boxplots compare feature distributions across classes.
+
+---
 #### **How to Use**
  - Clone the repository and install dependencies:
 ```bash
