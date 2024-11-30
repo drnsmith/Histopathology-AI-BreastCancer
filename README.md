@@ -1,5 +1,5 @@
 ### **Revolutionising Histopathology with AI: Advanced Deep Learning for Breast Cancer**
-#### **Overview**
+### **Overview**
 This project explores cutting-edge applications of **deep learning** and **statistical analysis** in breast cancer histopathology, leveraging pre-trained CNN architectures such as **ResNet50**, **EfficientNetB0**, and **DenseNet201** for feature extraction. By integrating these features with advanced clustering techniques and interpretability tools, we aim to uncover meaningful intra-class patterns, improve diagnostic precision, and bridge the gap between **AI-driven insights** and clinical applications.
 
 ### Key Features:
@@ -15,39 +15,22 @@ This project explores cutting-edge applications of **deep learning** and **stati
    - Incorporated **Grad-CAM** and **LIME** to enhance the interpretability of CNN decisions.
    - Used visualisation techniques like t-SNE and correlation heatmaps to reveal underlying patterns.
 
-### Dataset:
+#### Dataset:
 - The project uses the **BreakHis** dataset, a benchmark in medical imaging, providing diverse histopathological images of breast tissue across multiple magnifications.
 
-### Objectives:
+#### Objectives:
 1. **Unveil Hidden Patterns**: Leverage deep learning to identify intra-class variations in histopathological data.
 2. **Enhance Model Interpretability**: Use statistical insights and visualisation tools to demystify black-box AI models.
 3. **Support Precision Medicine**: Enable more nuanced, personalised diagnostic pathways for breast cancer.
 
-### Repository Highlights:
-- **Comprehensive Implementation**: Includes pipelines for data preprocessing, feature extraction, clustering, and visualisation.
-- **Reproducible Code**: Modular scripts designed for scalability and adaptation to other medical imaging tasks.
-- **Insights and Applications**: Detailed analyses that connect AI innovations with real-world healthcare needs.
-
-### Future Directions:
-- Expanding to other medical imaging datasets.
-- Enhancing clinical validation with patient outcomes.
-- Combining handcrafted and deep learning features for richer analyses.
-
-The aim of this project is to enhance model interpretability and performance in medical diagnostics by leveraging:
-- **Pre-trained CNNs** for feature extraction.
-- **Clustering and Statistical Analysis** to identify meaningful patterns.
-- **Explainability Tools** to bridge the gap between AI models and clinical trust.
-
----
-
-## **Key Features**
+#### **Key Features**
 
 - **Feature Extraction**:
   - Extracted embeddings from ResNet50, EfficientNetB0, and DenseNet201 using intermediate layers.
   - Features encoded textures, shapes, and structural patterns of breast tissue images.
 - **Clustering**:
   - Applied hierarchical clustering to group data, revealing distinct patterns in benign vs. malignant classes.
-  - Visualized clusters using dendrograms for interpretability.
+  - Visualised clusters using dendrograms for interpretability.
 - **Statistical Analysis**:
   - Conducted t-tests and ANOVA to assess feature importance and distinguish between classes.
 - **Model Comparisons**:
@@ -68,7 +51,7 @@ By combining CNNs with statistical methods, this project aims to make breast can
 
 ## **What I’ve Done**
 
-### **1. Data Preprocessing**
+### **1. Data Pre-processing**
 - Preprocessed the **BreakHis** dataset, resizing images to `224 x 224` pixels and normalizing intensities.
 - Split the dataset into training and validation sets, maintaining class balance using stratified sampling.
 
@@ -108,6 +91,11 @@ By combining CNNs with statistical methods, this project aims to make breast can
 
 ### **Explainability**
 - Grad-CAM visualizations validated that CNNs focused on clinically relevant regions in histopathological images.
+
+#### Future Directions:
+- Expanding to other medical imaging datasets.
+- Enhancing clinical validation with patient outcomes.
+- Combining handcrafted and deep learning features for richer analyses.
 
 ---
 
