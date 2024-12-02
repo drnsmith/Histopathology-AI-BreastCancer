@@ -1,167 +1,143 @@
-### **Revolutionising Histopathology with AI: Advanced Deep Learning for Breast Cancer**
-#### **Overview**
+# **Revolutionizing Histopathology with AI: Advanced Deep Learning for Breast Cancer Diagnosis**
 
-This project explores the application of state-of-the-art deep learning models—**ResNet50**, **EfficientNetB0**, and **DenseNet201**—for breast cancer diagnostics using the **BreakHis dataset**. The work involves:
-- Training individual CNN models.
-- Combining their outputs using an **ensemble approach** to achieve optimal performance metrics.
-- Re-purposing the best models as **feature extractors** for clustering and statistical analysis.
-- Applying **Grad-CAM** and **LIME** for explainability, linking statistical insights with interpretable visualisations.
-
-By combining feature extraction with clustering and statistical techniques, this work provides a comprehensive pipeline for interpreting and analysing complex datasets, bridging the gap between raw data and actionable insights.
+## **Project Overview**
+This project applies state-of-the-art deep learning models—**ResNet50**, **EfficientNetB0**, and **DenseNet121**—to classify histopathology images into benign and malignant categories. Using the **BreakHis** dataset, it explores ensemble learning, advanced evaluation metrics, and calibration techniques to ensure robust and interpretable predictions.
 
 ---
 
-#### **Key Features**
+## **Motivation**
+Histopathological analysis plays a critical role in diagnosing breast cancer. This project seeks to:
+1. Build reliable and interpretable AI pipelines to support pathologists.
+2. Evaluate deep learning models with custom metrics for medical imaging.
+3. Enhance prediction reliability with calibration and ensembling methods.
 
-- **Deep Learning Models**:
-  - Trained **ResNet50**, **EfficientNetB0**, and **DenseNet201** for binary classification (benign vs. malignant).
-  - Applied ensembling (logistic regression meta-model) to achieve optimal accuracy, sensitivity, and specificity.
-  
+---
+
+## **Key Features**
+- **Advanced CNN Models**:
+  - Transfer learning with ResNet50, EfficientNetB0, and DenseNet121.
+  - Custom layers tailored for binary classification.
+
+- **Cross-Validation**:
+  - Stratified K-Fold cross-validation for robust model evaluation.
+
+- **Metrics**:
+  - Custom metrics include sensitivity, specificity, precision, F1-score, and ROC-AUC.
+
+- **Calibration Techniques**:
+  - Includes Platt scaling and isotonic regression to improve the reliability of probabilistic outputs.
+
+- **Visualization**:
+  - Training/validation loss and accuracy curves.
+  - Confusion matrices, ROC curves, and precision-recall plots for performance insights.
+
+- **Hyperparameter Tuning**:
+  - Threshold optimization to maximize F1-score.
+
+---
+
+## **Project Structure**
+- **`models/`**:
+  - `resnet.py`: Implements ResNet50 for feature extraction and classification.
+
 - **Feature Extraction**:
-  - Extracted embeddings from intermediate layers of the best models, encoding textures, shapes, and structural patterns of breast tissue.
+  - `features_extract_p1.ipynb` and `features_extract_p2.ipynb`: Notebooks for extracting embeddings.
 
-- **Clustering**:
-  - Applied hierarchical clustering on extracted features to identify distinct patterns in benign vs. malignant samples.
-  - Visualised relationships between samples using dendrograms.
+- **Final Experiments**:
+  - `final_experiments.py`: Contains the implementation of all experiments, including training, evaluation, and calibration.
 
-- **Statistical Analysis**:
-  - Conducted t-tests and ANOVA to rank features based on their ability to distinguish between classes.
-  - Identified statistically significant clusters and correlated features with class labels.
+- **Grad-CAM and LIME**:
+  - `grad_cam_lime.py`: Script for generating interpretability visualizations.
 
-- **Explainability**:
-  - Integrated **Grad-CAM** and **LIME** to enhance model interpretability, linking feature insights with visual regions of interest.
+- **Main Script**:
+  - `main.py`: Entry point for training and evaluation.
 
----
-
-#### **Project Motivation**
-Breast cancer diagnosis relies heavily on accurate and interpretable imaging tools. This project addresses critical challenges in medical AI:
-- The "black-box" nature of deep learning models.
-- Limited interpretability of predictions in clinical settings.
-- The need for robust pipelines that bridge feature extraction with actionable insights.
-
-By combining CNNs with statistical methods and explainability tools, this project aims to make breast cancer diagnostics not only accurate but also explainable and clinically useful.
+- **Utility Functions**:
+  - `utils.py`: Helper functions for preprocessing, plotting, and evaluation.
 
 ---
 
-### **Steps:**
+## **Installation**
 
-#### **1. Model Training**
-- Trained **ResNet50**, **EfficientNetB0**, and **DenseNet201** on the **BreakHis dataset** for binary classification (benign vs. malignant).
-- Optimised model performance using data augmentation and weighted loss functions.
-
-#### **2. Model Ensembling**
-- Combined the predictions of trained models using a **logistic regression meta-model** to achieve the best performance metrics:
-  - **Accuracy**: 99.56%
-  - **Sensitivity**: 99.54%
-  - **Specificity**: 99.60%
-
-#### **3. Feature Extraction**
-- Re-purposed the best-performing models to extract embeddings from intermediate layers.
-- Captured complex image details to support statistical and clustering analyses.
-
-#### **4. Clustering and Visualisation**
-- Performed hierarchical clustering on extracted features.
-- Visualised clusters using dendrograms and PCA scatter plots.
-
-#### **5. Statistical Analysis**
-- Conducted statistical tests (t-tests, ANOVA) to rank features by their discriminative power.
-- Identified clusters and correlated features with class labels (benign vs. malignant).
-
-#### **6. Explainability**
-- Applied **Grad-CAM** to visualise regions of images influencing predictions.
-- Used **LIME** to explain the contribution of individual features to model decisions.
-
----
-
-### **Results**
-
-#### **Model Comparisons**
-| **Model**        | **Accuracy** | **AUC**  | **Silhouette Score** |
-|-------------------|--------------|----------|----------------------|
-| ResNet50          | 94.2%       | 0.93     | 0.68                 |
-| EfficientNetB0    | 93.8%       | 0.92     | 0.66                 |
-| DenseNet201       | **98.3%**   | **0.96** | **0.78**             |
-| **Ensemble**      | **99.56%**  | **0.99** | -                    |
-
-#### **Clustering and Statistical Insights**
-- **Hierarchical Clustering**: DenseNet201 features produced the most distinct and cohesive clusters, highlighting its ability to separate benign and malignant samples effectively.
-- **Statistical Analysis**: DenseNet201 features showed the highest significance in t-tests, with `p-values` consistently below `0.01` for top-ranked features.
-
-#### **Explainability**
-- **Grad-CAM** visualisations validated that CNNs focused on clinically relevant regions in histopathological images.
-- **LIME** provided granular explanations for feature contributions, enhancing trust and interpretability.
-
----
-
-### **Key Visualisations**
-
-#### ** PCA Scatter Plot**
-Demonstrates class separability in the feature space.
-
-#### ** Hierarchical Clustering**
-Dendrograms reveal distinct clusters formed by benign and malignant samples.
-
-#### ** Statistical Insights**
-Bar charts and boxplots compare feature distributions across classes.
-
----
-### Project Structure
-`main.py`: Entry point for training and evaluation.
-`utils.py`: Utilities for preprocessing, Grad-CAM, and visualisations.
-`models/`: Contains ResNet, DenseNet, and EfficientNet implementations.
-`notebooks/`: Jupyter notebooks for experiments.
-`data/`: Placeholder for dataset storage.
-
-### **How to Use**
- - Clone the repository and install dependencies:
+### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/Histopathology-AI-BreastCancer.git
+git clone https://github.com/drnsmith/Histopathology-AI-BreastCancer.git
 cd Histopathology-AI-BreastCancer
+```
+
+### **2. Set Up the Environment**
+Create a virtual environment and install the dependencies:
+```bash
+python -m venv env
+# Activate the virtual environment
+# On Windows:
+env\Scripts\activate
+# On Unix or macOS:
+source env/bin/activate
+# Install dependencies
 pip install -r requirements.txt
 ```
- - Train Models:
+
+### **3. Download the BreakHis Dataset**
+Obtain the dataset from the official [BreakHis website](https://web.inf.ufpr.br/vri/breast-cancer-database) and place it in the appropriate directory (`data/`).
+
+---
+
+## **Usage**
+
+### **1. Train Models**
+Train models using cross-validation:
 ```bash
-python main.py --train
+python final_experiments.py --train
 ```
- - Evaluate Models:
 
+### **2. Evaluate Models**
+Evaluate the trained models:
 ```bash
-python main.py --evaluate
+python final_experiments.py --evaluate
 ```
- - Visualise Grad-CAM:
+
+### **3. Calibration**
+Apply Platt scaling or isotonic regression for calibration:
 ```bash
-python utils.py --gradcam
+python final_experiments.py --calibrate
 ```
-### Contributing
-Contributions are welcome! If you have ideas or improvements to share, please follow these steps:
 
-1. **Fork the Repository:**
-Create your own copy of the repository by clicking the "Fork" button at the top right of this page.
-
-2. **Create a Feature Branch:**
-Work on your changes in a dedicated branch.
-
+### **4. Visualization**
+Generate performance plots and confusion matrices:
 ```bash
-git checkout -b feature/YourFeatureName
+python final_experiments.py --visualize
 ```
-3. **Commit Your Changes:**
-Write clear and concise commit messages explaining what you’ve done.
 
+### **5. Model Interpretability**
+Use Grad-CAM and LIME for visualizing important regions in histopathology images:
 ```bash
-git commit -m "Add YourFeatureName"
+python grad_cam_lime.py
 ```
-4. **Push Your Changes**:
-Push your feature branch to your forked repository.
-```bash
-git push origin feature/YourFeatureName
-```
-5. **Open a Pull Request**:
-Submit your changes to the main repository by opening a pull request (PR). Ensure your PR description explains your changes clearly.
 
-6. **Review and Feedback**:
-I will review your PR and may suggest improvements before merging it into the main branch.
+---
 
-Thank you for your interest in contributing!
+## **Results**
+- **Accuracy**: The ensemble model achieved ~95% accuracy.
+- **Calibration**: Improved probabilistic reliability using isotonic regression.
+- **Explainability**: Grad-CAM highlighted regions critical for model decisions, improving trust in predictions.
 
-### License
-This project is licensed under the MIT License.
+---
+
+## **Contributing**
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/NewFeature`).
+3. Commit your changes (`git commit -m 'Add NewFeature'`).
+4. Push to the branch (`git push origin feature/NewFeature`).
+5. Open a pull request.
+
+---
+
+## **License**
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## **Acknowledgments**
+Special thanks to the creators of the **BreakHis dataset** and the open-source community for tools that facilitated this project.
