@@ -79,7 +79,7 @@ pip install -r requirements.txt
 ```
 
 ### **3. Download the BreakHis Dataset**
-Obtain the dataset from the official [BreakHis website](https://web.inf.ufpr.br/vri/breast-cancer-database) and place it in the appropriate directory (`data/`).
+Obtain the dataset from Kaggle and place it in the appropriate directory (`data/`).
 
 ---
 
