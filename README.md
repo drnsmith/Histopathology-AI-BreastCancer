@@ -105,6 +105,13 @@ Dendrograms reveal distinct clusters formed by benign and malignant samples.
 Bar charts and boxplots compare feature distributions across classes.
 
 ---
+### Project Structure
+`main.py`: Entry point for training and evaluation.
+`utils.py`: Utilities for preprocessing, Grad-CAM, and visualisations.
+`models/`: Contains ResNet, DenseNet, and EfficientNet implementations.
+`notebooks/`: Jupyter notebooks for experiments.
+`data/`: Placeholder for dataset storage.
+
 ### **How to Use**
  - Clone the repository and install dependencies:
 ```bash
@@ -125,12 +132,36 @@ python main.py --evaluate
 ```bash
 python utils.py --gradcam
 ```
-### Project Structure
-`main.py`: Entry point for training and evaluation.
-`utils.py`: Utilities for preprocessing, Grad-CAM, and visualisations.
-`models/`: Contains ResNet, DenseNet, and EfficientNet implementations.
-`notebooks/`: Jupyter notebooks for experiments.
-`data/`: Placeholder for dataset storage.
+### Contributing
+Contributions are welcome! If you have ideas or improvements to share, please follow these steps:
+
+1. **Fork the Repository:**
+Create your own copy of the repository by clicking the "Fork" button at the top right of this page.
+
+2. **Create a Feature Branch:**
+Work on your changes in a dedicated branch.
+
+```bash
+git checkout -b feature/YourFeatureName
+```
+3. **Commit Your Changes:**
+Write clear and concise commit messages explaining what you’ve done.
+
+```bash
+git commit -m "Add YourFeatureName"
+```
+4. **Push Your Changes**:
+Push your feature branch to your forked repository.
+```bash
+git push origin feature/YourFeatureName
+```
+5. **Open a Pull Request**:
+Submit your changes to the main repository by opening a pull request (PR). Ensure your PR description explains your changes clearly.
+
+6. **Review and Feedback**:
+I will review your PR and may suggest improvements before merging it into the main branch.
+
+Thank you for your interest in contributing!
 
 ### License
 This project is licensed under the MIT License.
