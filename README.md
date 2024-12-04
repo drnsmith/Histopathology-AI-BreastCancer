@@ -1,11 +1,11 @@
-# **Revolutionizing Histopathology with AI: Advanced Deep Learning for Breast Cancer Diagnosis**
+### Histopathology AI: Breast Cancer Detection with ResNet, DenseNet, and EfficientNet
 
-## **Project Overview**
+#### **Overview**
 This project applies state-of-the-art deep learning models—**ResNet50**, **EfficientNetB0**, and **DenseNet121**—to classify histopathology images into benign and malignant categories. Using the **BreakHis** dataset, it explores ensemble learning, advanced evaluation metrics, and calibration techniques to ensure robust and interpretable predictions.
 
 ---
 
-## **Motivation**
+#### **Motivation**
 Histopathological analysis plays a critical role in diagnosing breast cancer. This project seeks to:
 1. Build reliable and interpretable AI pipelines to support pathologists.
 2. Evaluate deep learning models with custom metrics for medical imaging.
@@ -13,7 +13,7 @@ Histopathological analysis plays a critical role in diagnosing breast cancer. Th
 
 ---
 
-## **Key Features**
+#### **Key Features**
 - **Advanced CNN Models**:
   - Transfer learning with ResNet50, EfficientNetB0, and DenseNet121.
   - Custom layers tailored for binary classification.
